@@ -1,0 +1,35 @@
+topology: 'circular'
+organism:
+    genus_species: 'Escherichia coli'
+    strain: 'my_strain'
+contact_info:
+    last_name: 'Doe'
+    first_name: 'Jane'
+    email: 'jane_doe@gmail.com'
+    organization: 'NIH'
+    department: 'NCBI'
+    phone: '301-555-0245'
+    fax: '301-555-1234'
+    street: '9000 Rockville Pike'
+    city: 'Bethesda'
+    state: 'MD'
+    postal_code: '20850'
+    country: 'USA'
+authors:
+    - author:  
+        last_name: 'Doe'    
+        first_name: 'Jane'
+        middle_initial: 'A'
+    - author:  
+        last_name: 'Doe'    
+        first_name: 'John'
+consortium: 'E. coli genome group'
+bioproject: 'PRJ9999999'
+biosample: 'SAMN99999999'      
+locus_tag_prefix: 'pgaptmp'
+sra:
+    - accession: 'SRR9999999'
+    - accession: 'ERR9999999'
+publications:
+    - publication:
+        pmid: 29112715

@@ -1,3 +1,7 @@
+# Test directory
+test/.nextflow*
+test/test_genomes/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
