@@ -65,6 +65,7 @@ process run_PGAP {
     container "ncbi/pgap:${params.pgap_version}"
     cpus 16
     memory "30 GB"
+    publishDir "${params.output_folder}/"
 
     input:
     tuple file(fasta), file(yaml) from sample_sheet_ch
