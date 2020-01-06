@@ -109,6 +109,7 @@ cwl-runner \
     --fasta ${fasta} \
     --submol ${yaml} \
     --supplemental_data input-${params.pgap_version} \
+    --report_usage
 
     """
 
