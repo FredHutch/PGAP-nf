@@ -77,11 +77,10 @@ process run_PGAP {
 set -euxo pipefail
 
 # Decompress the supplemental_data
-mkdir -p supplemental_data
-mv ${reference_tarball} supplemental_data/
-cd supplemental_data
 tar xzvf ${reference_tarball}
-cd ..
+
+# Make sure that the expected folder exists
+[[ -s input-${params.pgap_version} ]]
 
 # usage: pgap.cwl [-h] [--blast_hits_cache_data BLAST_HITS_CACHE_DATA]
 #                 [--blast_rules_db BLAST_RULES_DB] --fasta FASTA
@@ -109,7 +108,7 @@ cwl-runner \
     pgap.cwl \
     --fasta ${fasta} \
     --submol ${yaml} \
-    --supplemental_data supplemental_data/
+    --supplemental_data input-${params.pgap_version} \
 
     """
 
