@@ -71,6 +71,13 @@ process run_PGAP {
     tuple file(fasta), file(yaml) from sample_sheet_ch
     file reference_tarball
 
+    output:
+    file "${fasta}.fna"
+    file "${fasta}.faa"
+    file "${fasta}.gbk"
+    file "${fasta}.gff"
+    file "${fasta}.sqn"
+
     """
 #!/bin/bash
 
@@ -110,6 +117,17 @@ cwl-runner \
     --submol ${yaml} \
     --supplemental_data input-${params.pgap_version} \
     --report_usage
+
+# Rename the input files
+for suffix in fna faa gbk gff sqn; do
+
+    echo "Checking to make sure that annot.\$suffix exists"
+    [[ -s annot.\$suffix ]]
+
+    echo "Renaming to ${fasta}.\$suffix"
+    mv annot.\$suffix ${fasta}.\$suffix
+
+done
 
     """
 
