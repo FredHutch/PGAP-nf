@@ -8,7 +8,7 @@ on arbitrary sets of genomes using the Nextflow system for workflow management.
 
 In order to run this tool, you will need to provide:
 
-  1) Genome sequences in FASTA format
+  1) Genome sequences in FASTA format (NOTE: files cannot be compressed in any way)
   2) Annotations for each genome in YAML format (example below)
   3) Sample sheet linking each genome FASTA with its corresponding annotation YAML
 
