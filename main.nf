@@ -116,7 +116,9 @@ cwl-runner \
     --fasta ${fasta} \
     --submol ${yaml} \
     --supplemental_data input-${params.pgap_version} \
-    --report_usage
+    --report_usage 2>/dev/null
+# I have to mask all of the standard error for this process,
+# because it can easily take up gigabytes of logfile
 
 # Rename the input files
 for suffix in fna faa gbk gff sqn; do
