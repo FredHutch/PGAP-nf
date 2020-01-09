@@ -16,7 +16,7 @@ In order to run this tool, you will need to provide:
 ### Genome Annotation (YAML)
 
 The format of the genome annotation YAML expected by PGAP is described here: 
-(https://github.com/ncbi/pgap/wiki/Input-Files)[https://github.com/ncbi/pgap/wiki/Input-Files].
+[https://github.com/ncbi/pgap/wiki/Input-Files](https://github.com/ncbi/pgap/wiki/Input-Files).
 
 
 ### Sample sheet
