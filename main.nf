@@ -116,8 +116,8 @@ cwl-runner \
     --fasta ${fasta} \
     --submol ${yaml} \
     --supplemental_data input-${params.pgap_version} \
-    --report_usage 2>/dev/null
-# I have to mask all of the standard error for this process,
+    --report_usage 2>&1 | tail -n 120
+# I have to throw away all but the tail of the standard error for this process,
 # because it can easily take up gigabytes of logfile
 
 # Rename the input files
