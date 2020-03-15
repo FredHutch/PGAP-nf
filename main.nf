@@ -66,6 +66,8 @@ process run_PGAP {
     cpus 16
     memory "30 GB"
     publishDir "${params.output_folder}/"
+    errorStrategy 'retry'
+    maxRetries 2
 
     input:
     tuple file(fasta), file(yaml) from sample_sheet_ch
