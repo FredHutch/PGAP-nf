@@ -81,10 +81,10 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 import re
 
 # Read in all of the genome
-genome = \{
-    header: seq
+genome = dict([
+    (header, seq)
     for header, seq in SimpleFastaParser(open("${fasta}"))
-\}
+])
 
 # Sanitize and write out
 seen_headers = set([])
