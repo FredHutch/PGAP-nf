@@ -130,11 +130,11 @@ process run_PGAP {
     file reference_tarball
 
     output:
-    file "${fasta}.fna"
-    file "${fasta}.faa"
-    file "${fasta}.gbk"
-    file "${fasta}.gff"
-    file "${fasta}.sqn"
+    file "${fasta}.fna.gz"
+    file "${fasta}.faa.gz"
+    file "${fasta}.gbk.gz"
+    file "${fasta}.gff.gz"
+    file "${fasta}.sqn.gz"
 
     """
 #!/bin/bash
@@ -186,6 +186,8 @@ for suffix in fna faa gbk gff sqn; do
 
     echo "Renaming to ${fasta}.\$suffix"
     mv annot.\$suffix ${fasta}.\$suffix
+    echo "Compressing ${fasta}.\$suffix"
+    gzip ${fasta}.\$suffix
 
 done
 
