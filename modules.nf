@@ -36,5 +36,5 @@ process run_PGAP {
     file "${fasta}.sqn.gz"
 
     script:
-    tempalte "run_PGAP.sh"
+    template "run_PGAP.sh"
 }
