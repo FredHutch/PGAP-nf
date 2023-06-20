@@ -31,7 +31,7 @@ tar xzvf ${reference_tarball}
 #   --supplemental_data SUPPLEMENTAL_DATA
 
 cwl-runner \
-    /pgap/pgap.cwl \
+    \$(find / -name 'pgap.cwl') \
     --fasta ${fasta} \
     --submol ${yaml} \
     --supplemental_data input-${params.pgap_version} \
