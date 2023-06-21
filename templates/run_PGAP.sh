@@ -35,7 +35,8 @@ cwl-runner \
     --fasta ${fasta} \
     --submol ${yaml} \
     --supplemental_data input-${params.pgap_version} \
-    --report_usage 2>&1 | tail -n 120
+    --ignore_all_errors \
+    --report_usage 2>&1 | tail -n 200
 # I have to throw away all but the tail of the standard error for this process,
 # because it can easily take up gigabytes of logfile
 
