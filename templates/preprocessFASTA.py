@@ -2,8 +2,15 @@
 
 # Following criteria from https://github.com/ncbi/pgap/wiki/Input-Files
 
+import os
 from Bio.SeqIO.FastaIO import SimpleFastaParser
 import re
+
+# Parse the file path - making sure to replace
+# any escape characters that were used for shell expansion
+fasta = "${fasta}".replace("\\", "")
+# Make sure that the file path is valid
+assert os.path.exists(fasta), "File path %s does not exist in the working directory" % fasta
 
 # Read in all of the genome
 genome = dict([
