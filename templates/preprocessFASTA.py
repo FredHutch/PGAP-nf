@@ -7,20 +7,20 @@ from Bio.SeqIO.FastaIO import SimpleFastaParser
 import re
 
 # Parse the file path - making sure to replace
-# any escape characters that were used for shell expansion
-fasta = "${fasta}".replace("\\", "")
+# any escape characters that were used to escape spaces
+fasta = "${fasta}".replace("\\ ", " ")
 # Make sure that the file path is valid
 assert os.path.exists(fasta), "File path %s does not exist in the working directory" % fasta
 
 # Read in all of the genome
 genome = dict([
     (header, seq)
-    for header, seq in SimpleFastaParser(open("${fasta}"))
+    for header, seq in SimpleFastaParser(open(fasta))
 ])
 
 # Sanitize and write out
 seen_headers = set([])
-with open("${fasta}", "w") as handle:
+with open(fasta, "w") as handle:
     for header, seq in genome.items():
 
         # Make sure the sequence is >= 199 nucleotides
