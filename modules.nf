@@ -1,6 +1,6 @@
 process preprocessFASTA {
 
-    container "quay.io/fhcrc-microbiome/integrate-metagenomic-assemblies:v0.5"
+    container "quay.io/biocontainers/biopython.convert:1.3.3--pyh5e36f6f_0"
     cpus 1
     memory "2 GB"
     
