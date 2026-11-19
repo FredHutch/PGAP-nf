@@ -56,14 +56,13 @@ workflow {
         | preprocessFASTA
 
     // Point to the reference files
-    reference_tarball = file(
-        "https://s3.amazonaws.com/pgap/input-${params.pgap_version}.tgz"
-    )
+    reference_tarball_url = "https://ncbi-pgap.s3.amazonaws.com/input_data/input-${params.pgap_version}.tgz"
+    reference_tarball = file(reference_tarball_url)
 
     // Make sure that the reference file exists
     if (!reference_tarball.exists()){
         log.info"""
-    Problem, https://s3.amazonaws.com/pgap/input-${params.pgap_version}.tgz does not exist.
+    Problem, ${reference_tarball_url} does not exist.
 
     This is probably because the specified PGAP version is not valid (currently using ${params.pgap_version}).
 
@@ -71,7 +70,7 @@ workflow {
 
     You can specify which PGAP version to use with the --pgap_version flag.
     """
-        exit 0
+        exit 1
     }
 
     // Run PGAP
